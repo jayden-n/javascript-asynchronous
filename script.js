@@ -20,6 +20,7 @@ const renderCountry = function (data, className = '') {
   countriesContainer.insertAdjacentHTML('beforeend', html);
   countriesContainer.style.opacity = 1;
 };
+/*
 const getCountryAndNeighbour = function (country) {
   // AJAX call country 1
   const request = new XMLHttpRequest();
@@ -50,4 +51,32 @@ const getCountryAndNeighbour = function (country) {
 // getCountryAndNeighbour('vietnam');
 getCountryAndNeighbour('usa');
 // getCountryAndNeighbour('canada');
+*/
 
+// const request = fetch('https://restcountries.com/v2/name/vietnam');
+// console.log(request);
+
+// const getCountryData = function (country) {
+//   fetch(`https://restcountries.com/v2/name/${country}`)
+//     .then(function (response) {
+//       console.log(response);
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//       renderCountry(data[0]);
+//     });
+// };
+const request = fetch('https://restcountries.com/v2/name/vietnam');
+
+const getCountryData = country => {
+  fetch(`https://restcountries.com/v2/name/${country}`)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      renderCountry(data[0]);
+    });
+};
+getCountryData('vietnam');

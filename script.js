@@ -187,3 +187,17 @@ btn.addEventListener('click', function () {
 });
 // getCountryData('australia');
 */
+
+
+const whereami = async function (country) {
+  // fetch(`https://restcountries.com/v2/name/${country}`).then(res =>
+  //   console.log(res)
+  // );
+  ///////////////////////
+  const res = await fetch(`https://restcountries.com/v2/name/${country}`);
+  const data = await res.json();
+  console.log(data);
+  renderCountry(data[0]);
+};
+whereami('vietnam');
+console.log('FIRST');
